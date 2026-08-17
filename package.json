@@ -2,6 +2,11 @@
   "name": "@nubisco/cms-vue",
   "version": "0.0.0",
   "description": "Nubisco CMS content contract and evaluator. The Vue render kit follows.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nubisco/cms-vue.git"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
