@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/nubisco/cms-vue/compare/v1.1.0...v1.2.0) (2026-08-18)
+
+
+### Features
+
+* add CmsZone resolver and BlockFrame ([d55c975](https://github.com/nubisco/cms-vue/commit/d55c975f2e67b112c44154a3a00f64aa79ada181))
+
 # [1.1.0](https://github.com/nubisco/cms-vue/compare/v1.0.0...v1.1.0) (2026-08-18)
 
 
