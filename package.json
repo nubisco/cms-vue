@@ -1,7 +1,7 @@
 {
   "name": "@nubisco/cms-vue",
   "version": "1.0.0",
-  "description": "Nubisco CMS content contract and evaluator. The Vue render kit follows.",
+  "description": "Nubisco CMS content contract, evaluator, and Vue render kit.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -10,26 +10,35 @@
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./style.css": "./dist/cms-vue.css"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "types:check": "tsc --noEmit",
-    "prepublishOnly": "pnpm run build"
+    "build": "vite build",
+    "types:check": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "@vitejs/plugin-vue": "^6.0.5",
     "semantic-release": "^25.0.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^8.0.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vue": "^3.5.30",
+    "vue-tsc": "^3.2.6"
   },
   "publishConfig": {
     "access": "public"
