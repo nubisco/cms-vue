@@ -1,6 +1,6 @@
 {
   "name": "@nubisco/cms-vue",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Nubisco CMS content contract and evaluator. The Vue render kit follows.",
   "license": "MIT",
   "repository": {
@@ -17,7 +17,9 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "types:check": "tsc --noEmit",
@@ -33,7 +35,9 @@
     "access": "public"
   },
   "release": {
-    "branches": ["master"],
+    "branches": [
+      "master"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -43,7 +47,10 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["package.json", "CHANGELOG.md"],
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]"
         }
       ]
