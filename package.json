@@ -68,6 +68,6 @@
     ]
   },
   "dependencies": {
-    "@nubisco/cms-core": "^0.1.0"
+    "@nubisco/cms-core": "^1.0.0"
   }
 }
