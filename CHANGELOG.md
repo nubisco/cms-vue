@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/nubisco/cms-vue/compare/v1.4.0...v1.4.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* require cms-core ^1.0.0, so consumers stop resolving the broken 0.1.0 ([45cda56](https://github.com/nubisco/cms-vue/commit/45cda56e923bd06012c1c1d1078146fb61a5ef85))
+
 # [1.4.0](https://github.com/nubisco/cms-vue/compare/v1.3.0...v1.4.0) (2026-08-28)
 
 
