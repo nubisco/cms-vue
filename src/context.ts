@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import type { BlockInstance, FieldValue } from './contract'
+import type { BlockInstance, FieldValue } from '@nubisco/cms-core'
 
 /**
  * Render context provided by CmsZone and injected by field primitives. It

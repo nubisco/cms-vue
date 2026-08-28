@@ -17,9 +17,9 @@
 
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue'
-import type { BlockInstance } from './contract'
+import type { BlockInstance } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
-import { text } from './resolve'
+import { text } from '@nubisco/cms-core'
 
 const props = defineProps<{ block: BlockInstance; field: string }>()
 

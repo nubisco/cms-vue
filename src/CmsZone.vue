@@ -42,8 +42,8 @@
 
 <script setup lang="ts">
 import { computed, provide, type Component } from 'vue'
-import type { BlockInstance, FieldValue, LogicGraph, Zone } from './contract'
-import { evaluate, type LogicEnv } from './evaluate'
+import type { BlockInstance, FieldValue, LogicGraph, Zone } from '@nubisco/cms-core'
+import { evaluate, type LogicEnv } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
 import BlockFrame from './BlockFrame.vue'
 

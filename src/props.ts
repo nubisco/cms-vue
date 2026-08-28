@@ -14,7 +14,7 @@
  * nothing about what it renders.
  */
 import type { PropType } from 'vue'
-import type { BlockInstance, FieldValue } from './contract'
+import type { BlockInstance, FieldValue } from '@nubisco/cms-core'
 
 /** A block instance narrowed to the fields one block type declares. */
 export interface TypedBlock<TFields extends Record<string, FieldValue> = Record<string, FieldValue>>

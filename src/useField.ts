@@ -1,7 +1,7 @@
 import { inject } from 'vue'
-import type { FieldValue } from './contract'
+import type { FieldValue } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
-import { text } from './resolve'
+import { text } from '@nubisco/cms-core'
 
 /** Small helper for block components: resolve a field value to display text. */
 export function useField() {

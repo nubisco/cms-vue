@@ -15,7 +15,12 @@ export default defineConfig({
       fileName: () => 'index.js',
     },
     rollupOptions: {
-      external: ['vue'],
+      // Vue is a peer, and the core is a real dependency: BOTH stay external.
+      // Bundling the core in would defeat the point of extracting it. A consumer
+      // would get the link and richtext models twice, once inlined here and once
+      // from the package a future cms-react would also depend on, and the two
+      // copies would answer `instanceof` and identity checks differently.
+      external: ['vue', '@nubisco/cms-core'],
     },
     emptyOutDir: true,
   },

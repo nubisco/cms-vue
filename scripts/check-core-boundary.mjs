@@ -1,42 +1,46 @@
 /**
- * The framework-agnostic core must stay framework-agnostic.
+ * The core does not live here any more.
  *
- * These modules are the future `@nubisco/cms-core`: the link model, the richtext
- * model, the image model and the field contract. Today they ship inside
- * cms-vue, but nothing in them may import a framework, so extracting a core
- * package that cms-vue, cms-react and cms-svelte all depend on stays a move
- * rather than a rewrite.
+ * These modules moved to @nubisco/cms-core, which cms-vue now depends on. This
+ * script used to prove they imported no framework, which is what made that move
+ * a file move rather than a rewrite. That job now belongs to cms-core's own
+ * scripts/check-no-framework.mjs.
  *
- * One stray `import { ref } from 'vue'` is all it takes to lose that, and it
- * would fail no other check, so it fails this one.
+ * What remains worth guarding is the opposite direction: nobody re-creating a
+ * local copy of a core module here, which is how two implementations of the link
+ * model would drift apart and how a future @nubisco/cms-react would inherit the
+ * mess. So this fails if a core module reappears in src/, or if the dependency
+ * on the core is dropped.
+ *
+ * It deliberately does NOT pass by checking nothing: an empty check that reports
+ * success is worse than no check, because it reads as a guarantee.
  */
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join, resolve } from 'node:path'
 
-const CORE = ['src/link.ts', 'src/image.ts', 'src/richtext.ts', 'src/contract.ts', 'src/resolve.ts', 'src/evaluate.ts']
-const FRAMEWORKS = ['vue', 'react', 'svelte', 'preact', '@vue/']
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const MOVED = ['link.ts', 'image.ts', 'richtext.ts', 'resolve.ts', 'evaluate.ts', 'graph.ts', 'contract']
 
-let bad = 0
-let checked = 0
-for (const file of CORE) {
-  let src
-  try {
-    src = readFileSync(file, 'utf8')
-  } catch {
-    continue // a core module that does not exist yet is not a violation
-  }
-  checked++
-  for (const m of src.matchAll(/^\s*(?:import|export)[^'"]*from\s*['"]([^'"]+)['"]/gm)) {
-    const spec = m[1]
-    if (FRAMEWORKS.some((f) => spec === f || spec.startsWith(f))) {
-      console.error(`  ${file} imports "${spec}"`)
-      bad++
-    }
-  }
+const reappeared = MOVED.filter((m) => existsSync(join(root, 'src', m)))
+const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'))
+const dep = pkg.dependencies?.['@nubisco/cms-core']
+
+const problems = []
+if (reappeared.length) {
+  problems.push(
+    `these belong to @nubisco/cms-core but exist again in src/: ${reappeared.join(', ')}.\n` +
+      '  Import them from the package instead of re-implementing them here.',
+  )
+}
+if (!dep) {
+  problems.push('package.json no longer depends on @nubisco/cms-core, so the re-export in src/index.ts is broken.')
 }
 
-if (bad) {
-  console.error(`\ncore boundary violated: ${bad} framework import(s).`)
-  console.error('These modules are the future @nubisco/cms-core. Framework code belongs in a .vue file or a composable.')
+if (problems.length) {
+  console.error('core boundary violated:')
+  for (const p of problems) console.error(`- ${p}`)
   process.exit(1)
 }
-console.log(`core boundary intact: ${checked} modules, no framework imports.`)
+
+console.log(`core boundary intact: core lives in @nubisco/cms-core (${dep}), ${MOVED.length} modules not duplicated here.`)

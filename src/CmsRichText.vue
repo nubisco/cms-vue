@@ -49,11 +49,11 @@
  *     richtext.ts for exactly how much a serializer can change.
  */
 import { computed, inject } from 'vue'
-import type { BlockInstance, FieldValue } from './contract'
+import type { BlockInstance, FieldValue } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
-import { text } from './resolve'
-import { pickField } from './link'
-import { applySerializers, compileLinks, isHtml, type RichTextSerializers } from './richtext'
+import { text } from '@nubisco/cms-core'
+import { pickField } from '@nubisco/cms-core'
+import { applySerializers, compileLinks, isHtml, type RichTextSerializers } from '@nubisco/cms-core'
 import { useCms } from './client'
 
 const props = withDefaults(

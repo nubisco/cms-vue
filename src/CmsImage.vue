@@ -26,10 +26,10 @@
  * what a screen reader needs in order to skip it.
  */
 import { computed, inject } from 'vue'
-import type { BlockInstance } from './contract'
+import type { BlockInstance } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
-import { normalizeImage, type ResolvedImage } from './image'
-import { pickField } from './link'
+import { normalizeImage, type ResolvedImage } from '@nubisco/cms-core'
+import { pickField } from '@nubisco/cms-core'
 
 const props = defineProps<{
   block?: BlockInstance

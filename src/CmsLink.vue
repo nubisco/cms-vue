@@ -30,10 +30,10 @@
  * markup at all, so it cannot be read out of the rendered HTML either.
  */
 import { computed, inject } from 'vue'
-import type { BlockInstance, FieldValue } from './contract'
+import type { BlockInstance, FieldValue } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
-import { text } from './resolve'
-import { linkAttrs, linkTag, normalizeLink, pickField, type ResolvedLink } from './link'
+import { text } from '@nubisco/cms-core'
+import { linkAttrs, linkTag, normalizeLink, pickField, type ResolvedLink } from '@nubisco/cms-core'
 import { useCms } from './client'
 
 const props = defineProps<{

@@ -21,7 +21,7 @@
  */
 import type { App, InjectionKey } from 'vue'
 import { inject } from 'vue'
-import type { Zone } from './contract'
+import type { Zone } from '@nubisco/cms-core'
 
 export type FetchLike = (input: string, init?: { cache?: RequestCache; headers?: Record<string, string> }) => Promise<{
   ok: boolean
