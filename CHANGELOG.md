@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/nubisco/cms-vue/compare/v1.3.0...v1.4.0) (2026-08-28)
+
+
+### Features
+
+* depend on @nubisco/cms-core instead of carrying the core ([f922283](https://github.com/nubisco/cms-vue/commit/f9222831ddff9d02db3a715cd94ca87e01a9aa34))
+
 # [1.3.0](https://github.com/nubisco/cms-vue/compare/v1.2.0...v1.3.0) (2026-08-28)
 
 

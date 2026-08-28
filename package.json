@@ -1,6 +1,6 @@
 {
   "name": "@nubisco/cms-vue",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Nubisco CMS content contract, evaluator, and Vue render kit.",
   "license": "MIT",
   "repository": {
