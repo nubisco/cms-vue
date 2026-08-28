@@ -20,7 +20,9 @@
     "./style.css": "./dist/cms-vue.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "node scripts/check-core-boundary.mjs && vite build",
@@ -69,5 +71,19 @@
   },
   "dependencies": {
     "@nubisco/cms-core": "^1.0.0"
-  }
+  },
+  "author": "José Silva <jose@nubisco.io>",
+  "homepage": "https://github.com/nubisco/cms-vue#readme",
+  "bugs": {
+    "url": "https://github.com/nubisco/cms-vue/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "cms",
+    "headless-cms",
+    "content",
+    "typescript",
+    "nubisco"
+  ]
 }
