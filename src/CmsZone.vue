@@ -15,15 +15,25 @@
         @down="move(i, i + 1)"
         @select="emit('select', block.id)"
       >
-        <component :is="registry[block.type]" v-if="registry[block.type]" :block="block" />
+        <component
+          :is="registry[block.type]"
+          v-if="registry[block.type]"
+          :block="block"
+          v-bind="blockProps(i)"
+        />
         <div v-else class="cms-zone__missing">Unknown block type: {{ block.type }}</div>
       </BlockFrame>
     </template>
 
     <!-- Preview: filtered by condition, rendered plain. -->
     <template v-else>
-      <template v-for="block in visibleBlocks" :key="block.id">
-        <component :is="registry[block.type]" v-if="registry[block.type]" :block="block" />
+      <template v-for="(block, i) in visibleBlocks" :key="block.id">
+        <component
+          :is="registry[block.type]"
+          v-if="registry[block.type]"
+          :block="block"
+          v-bind="blockProps(i)"
+        />
         <div v-else class="cms-zone__missing">Unknown block type: {{ block.type }}</div>
       </template>
     </template>
@@ -45,6 +55,16 @@ const props = defineProps<{
   editing?: boolean
   selectedId?: string | null
   graphs?: Record<string, LogicGraph>
+  /**
+   * Also pass `index`, `blocks` and `context` to every block component, the
+   * shape `getBlockComponentProps()` declares. OFF by default and deliberately:
+   * a block component that does not declare those props would render them as
+   * fallthrough attributes on its root element, changing the markup of every
+   * site already rendering with this zone.
+   */
+  provideBlockProps?: boolean
+  /** Passed straight through to each block as `context` when the above is on. */
+  context?: unknown
   setText?: (
     block: BlockInstance,
     field: string,
@@ -72,6 +92,11 @@ function passes(block: BlockInstance): boolean {
 }
 
 const visibleBlocks = computed<BlockInstance[]>(() => props.zone.blocks.filter(passes))
+
+function blockProps(index: number): Record<string, unknown> | undefined {
+  if (!props.provideBlockProps) return undefined
+  return { index, blocks: props.zone.blocks, context: props.context }
+}
 
 function frameLabel(block: BlockInstance): string {
   return block.type + (block.variation ? ` · ${block.variation}` : '')

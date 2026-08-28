@@ -23,8 +23,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
-    "types:check": "vue-tsc --noEmit"
+    "build": "node scripts/check-core-boundary.mjs && vite build",
+    "types:check": "vue-tsc --noEmit",
+    "check:core": "node scripts/check-core-boundary.mjs"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
