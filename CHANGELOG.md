@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/nubisco/cms-vue/compare/v1.2.0...v1.3.0) (2026-08-28)
+
+
+### Features
+
+* Prismic-parity primitives, and a guarded framework-agnostic core ([b12a066](https://github.com/nubisco/cms-vue/commit/b12a066445012b4eb9aab3013f9981e426a1d114))
+
 # [1.2.0](https://github.com/nubisco/cms-vue/compare/v1.1.0...v1.2.0) (2026-08-18)
 
 
