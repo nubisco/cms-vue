@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/nubisco/cms-vue/compare/v1.4.1...v1.5.0) (2026-10-06)
+
+
+### Features
+
+* CmsRichText sanitizes authored HTML before inserting it ([9c9d86e](https://github.com/nubisco/cms-vue/commit/9c9d86e88e61bb0b204766749714ed0a3bab102b))
+
 ## [1.4.1](https://github.com/nubisco/cms-vue/compare/v1.4.0...v1.4.1) (2026-08-28)
 
 
