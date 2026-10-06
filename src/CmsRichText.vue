@@ -1,6 +1,5 @@
 <template>
-  <!-- Authored HTML. The content comes from the CMS and is written by trusted
-       editors, so v-html is intentional. `v-html` INSERTS markup, it does not
+  <!-- Authored HTML, sanitized before it is inserted (see `html` below). `v-html` INSERTS markup, it does not
        COMPILE it, which is why the internal-link navigation below is a
        delegated click handler rather than a <RouterLink>. -->
   <component
@@ -53,7 +52,7 @@ import type { BlockInstance, FieldValue } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
 import { text } from '@nubisco/cms-core'
 import { pickField } from '@nubisco/cms-core'
-import { applySerializers, compileLinks, isHtml, type RichTextSerializers } from '@nubisco/cms-core'
+import { applySerializers, compileLinks, isHtml, sanitizeRichText, type RichTextSerializers } from '@nubisco/cms-core'
 import { useCms } from './client'
 
 const props = withDefaults(
@@ -113,7 +112,10 @@ const plain = computed(() => (isHtmlBody.value ? '' : body.value))
 const html = computed(() => {
   // compileLinks first, so an authored <router-link> is a real anchor by the
   // time serializers see it and gets the same treatment every other link gets.
-  let out = applySerializers(compileLinks(body.value), props.serializers)
+  // Then sanitized: whoever saved the document wrote this HTML, so only the
+  // markup an editor can write survives (cms-core sanitizeRichText). Serializers
+  // and the transform run after, because they are the product's own code.
+  let out = applySerializers(sanitizeRichText(compileLinks(body.value)), props.serializers)
   if (props.transform) out = props.transform(out)
   return out
 })
