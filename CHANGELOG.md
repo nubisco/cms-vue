@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/nubisco/cms-vue/compare/v1.5.0...v1.6.0) (2026-11-22)
+
+
+### Features
+
+* CmsRichText gives every heading an id derived from its text ([#2](https://github.com/nubisco/cms-vue/issues/2)) ([95d7e76](https://github.com/nubisco/cms-vue/commit/95d7e7642bbb899049a6d78f723b1fc17bca7fb2))
+
 # [1.5.0](https://github.com/nubisco/cms-vue/compare/v1.4.1...v1.5.0) (2026-10-06)
 
 
