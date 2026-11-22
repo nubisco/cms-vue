@@ -70,7 +70,7 @@
     ]
   },
   "dependencies": {
-    "@nubisco/cms-core": "^1.3.0"
+    "@nubisco/cms-core": "^1.4.0"
   },
   "author": "José Silva <jose@nubisco.io>",
   "homepage": "https://github.com/nubisco/cms-vue#readme",

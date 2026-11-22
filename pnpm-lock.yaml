@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@nubisco/cms-core':
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.4.0
+        version: 1.4.0
     devDependencies:
       '@semantic-release/changelog':
         specifier: ^6.0.3
@@ -101,8 +101,8 @@ packages:
   '@microsoft/tsdoc@0.16.0':
     resolution: {integrity: sha512-xgAyonlVVS+q7Vc7qLW0UrJU7rSFcETRWsqdXZtjzRU8dF+6CkozTK4V4y1LwOX7j8r/vHphjDeMeGI4tNGeGA==}
 
-  '@nubisco/cms-core@1.3.0':
-    resolution: {integrity: sha512-Odc1MQ8sf6cRKgZX+9l+mITH46AcubPPa4YOOVpcKWuA1V67SGvC/iju8rYd4mB5KZkvfjx/S1NMdO3zIcYIFA==}
+  '@nubisco/cms-core@1.4.0':
+    resolution: {integrity: sha512-PHKsgmIX8mHmY/Ocf+QoANdnCAOlZB8HBsHVzM/kWuOtVqgLhiw0g0mByciNxfrfOc5GNCmMrExaiwooAF9tHQ==}
 
   '@octokit/auth-token@6.0.0':
     resolution: {integrity: sha512-P4YJBPdPSpWTQ1NU4XYdvHvXJJDxM6YwpS0FZHRgP7YFkdVxsWcpWGy/NVqlAA7PcPCnMacXlRm1y2PFZRWL/w==}
@@ -2221,7 +2221,7 @@ snapshots:
 
   '@microsoft/tsdoc@0.16.0': {}
 
-  '@nubisco/cms-core@1.3.0': {}
+  '@nubisco/cms-core@1.4.0': {}
 
   '@octokit/auth-token@6.0.0': {}
 
