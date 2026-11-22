@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/nubisco/cms-vue/compare/v1.6.0...v1.6.1) (2026-11-22)
+
+
+### Bug Fixes
+
+* cms-core 1.4.0, a heading keeps a plain-token id and a translation takes its source's ids ([#3](https://github.com/nubisco/cms-vue/issues/3)) ([61aaf14](https://github.com/nubisco/cms-vue/commit/61aaf141aa674c5013ab999afaf54014dcd97751))
+
 # [1.6.0](https://github.com/nubisco/cms-vue/compare/v1.5.0...v1.6.0) (2026-11-22)
 
 
