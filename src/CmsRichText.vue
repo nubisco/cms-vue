@@ -52,7 +52,14 @@ import type { BlockInstance, FieldValue } from '@nubisco/cms-core'
 import { CMS_CONTEXT } from './context'
 import { text } from '@nubisco/cms-core'
 import { pickField } from '@nubisco/cms-core'
-import { applySerializers, compileLinks, isHtml, sanitizeRichText, type RichTextSerializers } from '@nubisco/cms-core'
+import {
+  applySerializers,
+  compileLinks,
+  isHtml,
+  sanitizeRichText,
+  slugHeadings,
+  type RichTextSerializers,
+} from '@nubisco/cms-core'
 import { useCms } from './client'
 
 const props = withDefaults(
@@ -113,9 +120,11 @@ const html = computed(() => {
   // compileLinks first, so an authored <router-link> is a real anchor by the
   // time serializers see it and gets the same treatment every other link gets.
   // Then sanitized: whoever saved the document wrote this HTML, so only the
-  // markup an editor can write survives (cms-core sanitizeRichText). Serializers
-  // and the transform run after, because they are the product's own code.
-  let out = applySerializers(sanitizeRichText(compileLinks(body.value)), props.serializers)
+  // markup an editor can write survives (cms-core sanitizeRichText). That drops
+  // any id on a heading, so every heading then gets one from its own text
+  // (slugHeadings) and is a link target. Serializers and the transform run
+  // after, because they are the product's own code.
+  let out = applySerializers(slugHeadings(sanitizeRichText(compileLinks(body.value))), props.serializers)
   if (props.transform) out = props.transform(out)
   return out
 })
